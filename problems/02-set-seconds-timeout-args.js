@@ -23,9 +23,24 @@ setSecondsTimeoutArgs(function(arg1, arg2) {
 ***********************************************************************/
 
 function setSecondsTimeoutArgs(cb, delayInSeconds, ...args) {
-  // Your code here 
+  // Your code here
+  delayInSeconds *= 1000
+  setTimeout(() => {
+     console.log(cb(...args))
+  }, delayInSeconds);
+
 }
 
+console.log(setSecondsTimeoutArgs(function(...args){
+  let i = 0
+  let sum = 0
+  while(i < args.length){
+       sum += args[i]
+       i++
+  }
+
+  return sum
+},.25, 1,2,9))
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = setSecondsTimeoutArgs;
